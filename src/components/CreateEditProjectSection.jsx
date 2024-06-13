@@ -16,7 +16,7 @@ const CreateEditProjectSection = ({ showTable, setShowTable }) => {
   return (
     <div
       id="settingsControl"
-      className={`ps-2 pt-0 ${styles.createEditProjectSection}`}
+      className={`ps-2 pt-0`}
       style={{
         width: "20%",
         float: "right",
