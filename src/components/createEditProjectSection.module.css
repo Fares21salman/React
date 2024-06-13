@@ -1,0 +1,12 @@
+.createEditProjectSection {
+  margin-top: 9px;
+  padding: 2px;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  border-radius: 5px;
+  color: seashell;
+}
+
+.bg {
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  cursor: pointer;
+}
