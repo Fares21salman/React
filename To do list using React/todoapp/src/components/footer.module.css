@@ -1,0 +1,13 @@
+.footer {
+  position: fixed;
+  bottom: 0;
+  font-size: 1.5em;
+  text-align: center;
+  font-weight: bold;
+  width: 100%;
+  background-color: blanchedalmond;
+}
+
+.footerItem {
+  margin: 50px;
+}

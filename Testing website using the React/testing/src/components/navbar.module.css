@@ -1,0 +1,20 @@
+.appContainer {
+  padding: 0%;
+  left: 0;
+  top: 0;
+  height: auto;
+}
+
+.header {
+  top: 0;
+  left: 0;
+  height: 80px;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  color: white; /* Choose a color */
+  border-radius: 20px;
+  width: 83vw;
+}
+
+.nav {
+  padding: 25px;
+}

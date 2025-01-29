@@ -1,0 +1,30 @@
+.itemName {
+  font-weight: bold;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.todoListContainer {
+  width: 500px;
+  font-size: 20px;
+  margin: 0 auto;
+}
+
+.line {
+  border: 1px solid #f4f4f4;
+}
+
+.deleteButton {
+  float: right;
+  padding: 12px 20px;
+  border: none;
+  background-color: lightcoral;
+  margin-top: -5px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.selected {
+  text-decoration: line-through;
+  cursor: pointer;
+}

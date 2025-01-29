@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  font-family: sans-serif;
+  background-image: url("/src/components/img/back-school-witch-school-supplies.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow-x: hidden;
+}

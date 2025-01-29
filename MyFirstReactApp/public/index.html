@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+</head>
+
+<body>
+    <div id="dashboard" style="display: block;">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-2 bg-dark text-white changes" style="height: 100vh; width: 250px;">
+                    <div class="sidebar">
+                        <p class="fs-1 mt-5 New">New Project</p>
+                        <hr>
+                        <ul class="nav nav-pills flex-column mb-auto list_align">
+                            <li class="mb-3" id="New">
+                                Dashboard
+                            </li>
+                            <li class="mb-3">
+                                Orders
+                            </li>
+                            <li id="repository" class="mb-3">
+                                Repository
+                            </li>
+                            <li id="graph" class="mb-3">
+                                Graph
+                            </li>
+                        </ul>
+                        <hr>
+                    </div>
+                </div>
+
+                <!-- Main Content Column -->
+                <div class="col-lg-10 ps-0">
+                    <header class="p-3 bg-dark text-white">
+                        <div class="container">
+                            <div
+                                class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+                                <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+                                    <li>
+                                        <a href="#" class="nav-link px-2 text-white">
+                                            <label for="projects">Project:</label>
+                                            <select name="projects" id="projects">
+                                            </select>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="nav-link px-2 text-white">
+                                            <label for="versions">Version:</label>
+                                            <select name="versions" id="versions">
+                                            </select>
+                                        </a>
+                                    </li>
+                                </ul>
+                                <div id="settingsButton" class="d-flex">
+                                    <i class="fas fa-cog"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </header>
+
+                    <!-- Content Section -->
+                    <div class="content mt-3">
+                        <div class="sub-menu-wrap">
+                            <div class="sub-menu">
+                                <div id="settingsControl" class="hidden ps-2 pt-0 bg-dark text-white"
+                                    style="width: 20%; float: right;">
+                                    <p id="createProject">Create and Edit Project</p>
+                                    <p id="createVersion"></p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sub-menu-wrap">
+                            <div class="bg-primary text-white" style="width: 18%; height: 13vh; float: right; text-align: center;">
+                                <p id="manageVersions" class="pt-4">Manage Versions</p>
+                            </div>
+                        </div>
+
+                        <div class="row mt-4" id="totalTestcasesBox">
+                            <div class="col-3" id="testcases">
+                                <div class="box white-box">
+                                    <p>No of testcases: </p>
+                                </div>
+                            </div>
+                            <div class="col-3" id="passedTestcases">
+                                <div class="box green-box">
+                                    <p>No of passed testcases: </p>
+                                </div>
+                            </div>
+                            <div class="col-3" id="failedTestcases">
+                                <div class="box red-box">
+                                    <p>No of failed testcases: </p>
+                                </div>
+                            </div>
+                            <div class="col-3" id="notExecutedTestcases">
+                                <div class="box grey-box">
+                                    <p>Not executed: </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <form id="testcaseCreationForm" class="hidden ps-2">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">TC Name:</label>
+                                    <input type="text" class="form-control" id="title" name="title">
+                                </div>
+                                <div class="mb-5">
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="input1" class="form-label">tc:36c</label>
+                                            <input type="text" class="form-control pb-2" id="input1" name="input1"
+                                                disabled>
+                                        </div>
+                                        <div class="col">
+                                            <label for="input2" class="form-label">TC ID:</label>
+                                            <input type="text" class="form-control pb-2" id="input2" name="input2">
+                                        </div>
+                                        <div class="col">
+                                            <label for="input3" class="form-label">Priority:</label>
+                                            <select class="form-select pb-2" id="input3" name="input3">
+                                                <option value="high">High</option>
+                                                <option value="medium">Medium</option>
+                                                <option value="low">Low</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <label for="input4" class="form-label">Type:</label>
+                                            <select class="form-select" id="input4" name="input4">
+                                                <option value="automated">Automated</option>
+                                                <option value="manual">Manual</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="input5" class="form-label">TestCases Type:</label>
+                                            <select class="form-select" id="input5" name="input5">
+                                                <option value="teststeps">Test Steps</option>
+                                                <option value="testtext">Test Text</option>
+                                            </select>
+                                        </div>
+                                        <div class="col">
+                                            <label for="input6" class="form-label">admin:</label>
+                                            <input type="text" class="form-control" id="input6" name="input6" disabled>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mt-4">
+                                    <label for="input7" class="form-label">TestCases Grade:</label>
+                                    <select class="form-select" id="input7" name="input7">
+                                        <option value="Pass">Pass</option>
+                                        <option value="Fail">Fail</option>
+                                        <option value="NE">NE</option>
+                                    </select>
+                                </div>
+
+                                <div mt-5>
+                                    <label for="input8" class="form-label">Description:</label>
+                                    <textarea class="form-control" id="input8" name="input8" rows="3"></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                            </form>
+                        </div>
+
+                        <div id="manageVersionsTable" class="hidden ps-2">
+
+                            <div>
+                                <table id="mvTable" class="table table-bordered mb-3 ps-2">
+                                    <thead>
+                                        <tr>
+                                            <th>Serial No</th>
+                                            <th>Version Name</th>
+                                            <th>Description</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Edit and Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="ps-2">
+                                <form id="versionForm">
+                                    <div class="mb-3">
+                                        <label for="versionSerialNo" class="form-label">Serial No:</label>
+                                        <input type="number" class="form-control" id="versionSerialNo"
+                                            name="versionSerialNo">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="versionName" class="form-label">Version Name:</label>
+                                        <input type="text" class="form-control" id="versionName" name="versionName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="versionDescription" class="form-label">Description:</label>
+                                        <textarea class="form-control" id="versionDescription" name="versionDescription"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="versionStartDate" class="form-label">Start Date:</label>
+                                        <input type="date" class="form-control" id="versionStartDate"
+                                            name="versionStartDate">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="versionEndDate" class="form-label">End Date:</label>
+                                        <input type="date" class="form-control" id="versionEndDate"
+                                            name="versionEndDate">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="createProjectContent" class="hidden ps-2">
+                            <div>
+                                <table id="projectsTable" class="table table-bordered mb-5 ps-2">
+                                    <thead>
+                                        <tr>
+                                            <th>Serial No</th>
+                                            <th>Project Name</th>
+                                            <th>Description</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Edit and Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="ps-2">
+                                <form id="projectForm">
+                                    <div class="mb-3">
+                                        <label for="serialNo" class="form-label">Serial No:</label>
+                                        <input type="number" class="form-control" id="serialNo" name="serialNo">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="projectName" class="form-label">Project Name:</label>
+                                        <input type="text" class="form-control" id="projectName" name="projectName">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="projectDescription" class="form-label">Description:</label>
+                                        <textarea class="form-control" id="projectDescription" name="projectDescription"
+                                            rows="3"></textarea>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="startDate" class="form-label">Start Date:</label>
+                                        <input type="date" class="form-control" id="startDate" name="startDate">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="endDate" class="form-label">End Date:</label>
+                                        <input type="date" class="form-control" id="endDate" name="endDate">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div id="createVersionContent" class="hidden ps-2">
+                            <div>
+                                <table id="versionsTable" class="table table-bordered mb-3">
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="row mt-5">
+                            <div class="col-3">
+                                <div class="selected-content hidden" id="selectedContent">
+                                    <div class="selected-project" id="projectSection">
+                                        <!-- Content for project section goes here -->
+                                    </div>
+                                    <div class="selected-version" id="versionSection">
+                                        <!-- Content for version section goes here -->
+                                    </div>
+                                    <div id="testCaseList">
+
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div id="testcasesTable" class="col-9 hidden ps-2 mb-5">
+
+                                <div style="float: right;" class="mb-2" id="testcaseCreationSymbol">
+                                    <i class='fa fa-plus-circle'></i>
+                                </div>
+
+                                <div>
+                                    <table id="tcTable" class="table table-bordered mb-3 ps-2">
+                                        <thead>
+                                            <tr>
+                                                <th id="projectNameHeader">Project Name</th>
+                                                <th id="versionNameHeader">Version Name</th>
+                                                <th id="tcIDHeader">TC Name</th>
+                                                <th id="tcNameHeader">TC ID</th>
+                                                <th id="tcPriorityHeader">TC Priority</th>
+                                                <th id="tcTypeHeader">TC Type</th>
+                                                <th id="tcGradeHeader">TC Grade</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                                <div class="col-9">
+                                    <form id="tcShowingForm" class="hidden ps-2">
+                                        <button id="editButton" class="mb-5">
+                                            <i class='fa fa-edit'></i>Enable Edit
+                                        </button>
+                                        <div class="mb-3">
+                                            <label for="titles" class="form-label">TC Name:</label>
+                                            <input type="text" class="form-control" id="titles" name="titles" disabled>
+                                        </div>
+                                        <div class="mb-5">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="inputs1" class="form-label">tc:36c</label>
+                                                    <input type="text" class="form-control pb-2" id="inputs1"
+                                                        name="inputs1" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="inputs2" class="form-label">TC ID:</label>
+                                                    <input type="text" class="form-control pb-2" id="inputs2"
+                                                        name="inputs2" disabled>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="inputs3" class="form-label">Priority:</label>
+                                                    <select class="form-select pb-2" id="inputs3" name="inputs3"
+                                                        disabled>
+                                                        <option value="high">High</option>
+                                                        <option value="medium">Medium</option>
+                                                        <option value="low">Low</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <label for="inputs4" class="form-label">Type:</label>
+                                                    <select class="form-select" id="inputs4" name="inputs4" disabled>
+                                                        <option value="automated">Automated</option>
+                                                        <option value="manual">Manual</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="inputs5" class="form-label">TestCases Type:</label>
+                                                    <select class="form-select" id="inputs5" name="inputs5" disabled>
+                                                        <option value="teststeps">Test Steps</option>
+                                                        <option value="testtext">Test Text</option>
+                                                    </select>
+                                                </div>
+                                                <div class="col">
+                                                    <label for="inputs6" class="form-label">admin:</label>
+                                                    <input type="text" class="form-control" id="inputs6" name="inputs6"
+                                                        disabled>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="mt-4">
+                                            <label for="inputs7" class="form-label">TestCases Type:</label>
+                                            <select class="form-select" id="inputs7" name="inputs7" disabled>
+                                                <option value="Pass">Pass</option>
+                                                <option value="Fail">Fail</option>
+                                                <option value="NE">NE</option>
+                                            </select>
+                                        </div>
+
+                                        <div mt-5>
+                                            <label for="inputs8" class="form-label">Description:</label>
+                                            <textarea class="form-control" id="inputs8" name="inputs8" rows="3"
+                                                disabled></textarea>
+                                        </div>
+
+                                        <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="testcasesChart" width="400" height="200" class="hidden mb-5"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bson-objectid/browser.js"></script>
+    <script src="login.js"></script>
+</body>
+
+</html>

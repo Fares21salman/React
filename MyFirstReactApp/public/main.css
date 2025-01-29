@@ -1,0 +1,162 @@
+.title {
+  background-color: black;
+  color: white;
+  text-align: center;
+}
+
+.login-title {
+  text-align: center;
+  margin-bottom: 5%;
+  padding: 50px;
+}
+
+.list_align {
+  text-align: center;
+}
+
+.New {
+  text-align: center;
+}
+
+#repository {
+  cursor: pointer;
+}
+
+.white-box {
+  cursor: pointer;
+}
+
+#versionSection {
+  cursor: pointer;
+}
+
+#projectSection {
+  cursor: pointer;
+}
+
+.login-card {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  margin-left: 36%;
+  background-color: whitesmoke;
+  width: 30%;
+  height: auto;
+  margin-top: 10%;
+  border-radius: 10px;
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#usernameInput {
+  justify-content: center;
+  margin-left: 5%;
+  margin-bottom: 5%;
+}
+
+#password {
+  justify-content: center;
+  margin-left: 5%;
+  margin-bottom: 10%;
+}
+
+.remember {
+  margin-bottom: 10%;
+}
+
+#loginButton {
+  justify-content: center;
+  margin-bottom: 10%;
+  background-color: lightskyblue;
+  width: 150px;
+  height: 40px;
+  border-radius: 10px;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+#createVersion {
+  cursor: pointer;
+}
+
+#createProject {
+  cursor: pointer;
+}
+
+#settingsButton {
+  cursor: pointer;
+}
+
+#manageVersions {
+  cursor: pointer;
+}
+
+.box {
+  height: 100px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#testcases {
+  background-color: rgb(223, 221, 221);
+  height: 100px;
+  text-align: center;
+}
+
+#passedTestcases {
+  background-color: green;
+  text-align: center;
+  height: 100px;
+}
+
+#failedTestcases {
+  background-color: red;
+  height: 100px;
+  text-align: center;
+}
+
+#notExecutedTestcases {
+  background-color: rgb(184, 181, 181);
+  text-align: center;
+  height: 100px;
+}
+
+#testcaseCreationSymbol {
+  cursor: pointer;
+}
+
+#selectedContent {
+  padding: 5px;
+  text-align: center;
+  background-color: deepskyblue;
+  height: 534px;
+  width: 240px;
+}
+
+#projectSection {
+  margin-top: 10px;
+}
+
+#versionSection {
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+li {
+  cursor: pointer;
+}
+
+#editButton {
+  width: 100px;
+  float: right;
+}

@@ -1,0 +1,15 @@
+.counter {
+  text-align: center;
+  background-color: blanchedalmond;
+  padding: 10px;
+  margin: 10px;
+}
+
+.comparison1 {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.comparison2 {
+  cursor: pointer;
+}

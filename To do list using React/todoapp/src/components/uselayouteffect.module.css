@@ -1,0 +1,16 @@
+.middle {
+  text-align: center;
+  margin: 10px;
+  margin-bottom: 30px;
+  background-color: blanchedalmond;
+}
+
+.font {
+  font-size: larger;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.button {
+  display: flex;
+}

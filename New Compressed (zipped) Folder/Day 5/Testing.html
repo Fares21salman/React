@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+        integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+    <link rel="stylesheet" href="Style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <title></title>
+</head>
+
+<body>
+    <header class="headerstyle">
+        <div class="header-left-side">
+            <div class="header-content">
+                <i class='fa fa-cloud cloud-icon'>
+                    <span class="ji-text">Ji</span>
+                </i>
+                Automated Test Solutions
+            </div>
+            <select name="Test_Execution_Testing" id="Test_Execution_Testing">
+                <option value="Test_Evaluation_Testing">Test_Execution_Testing</option>
+                <option value="Test_1">Test_1</option>
+                <option value="Test_2">Test_1</option>
+                <option value="Test_2">Test_1</option>
+            </select>
+            <select name="" id="Execution_Test">
+                <option value="Execution_Test">Execution_Test_V_1</option>
+                <option value="Execution_Test">Execution_Test_V_2</option>
+                <option value="Execution_Test">Execution_Test_V_3</option>
+                <option value="Execution_Test">Execution_Test_V_4</option>
+            </select>
+        </div>
+        <div class="header-right-side">
+            <input type="text" class="search-bar" placeholder="Search">
+            <i class='fa fa-bullhorn' style="font-size: 20px;"></i>
+            <i class='fa fa-user-circle' style="font-size: 20px;"></i>
+            <span class="Messages_number">4</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="Navigation_bar">
+            <div>
+                <i class='fas fa-file-invoice'></i>
+                <p>Summary</p>
+            </div>
+            <div>
+                <i class='fas fa-clipboard-list'></i>
+                <p>Requirement</p>
+            </div>
+            <div>
+                <i class='fa fa-briefcase' id="repository"></i>
+                <p>Respository</p>
+            </div>
+            <div>
+                <i class='fa fa-list-alt'></i>
+                <p>Test Plan</p>
+            </div>
+            <div>
+                <i class='fa fa-exclamation-circle'></i>
+                <p>Test Execution</p>
+            </div>
+            <div>
+                <i class='fas fa-chart-pie'></i>
+                <p>Execution Result</p>
+            </div>
+            <div>
+                <i class='fas fa-bug'></i>
+                <p>Defects</p>
+            </div>
+            <div>
+                <i class='fas fa-chart-bar'></i>
+                <p>Reports</p>
+            </div>
+        </div>
+
+        <div class="content">
+            <h1>New Project</h1>
+            <div class="info">
+                <h4>Project Name</h4>
+                <input type="text" name="Document name">
+                <h4>Created By</h4>
+                <input type="text" name="Creator name">
+                <h4>Description</h4>
+                <textarea rows="10" cols="50"></textarea>
+                <h4>Configuration</h4>
+                <div class="checkbox-group">
+                    <input type="checkbox" name="Serial">
+                    <p>Serial</p>
+                    <input type="checkbox" name="Telnet">
+                    <p>Telnet</p>
+                </div>
+                <div class="button-group">
+                    <button type="button" class="save-button">Save</button>
+                    <button type="button" class="cancel-button">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5">
+            <div class="col-3">
+                <div class="selected-content hidden" id="selectedContent">
+                    <div class="selected-project" id="projectSection">
+                        <!-- Content for project section goes here -->
+                    </div>
+                    <div class="selected-version" id="versionSection">
+                        <!-- Content for version section goes here -->
+                    </div>
+                    <div id="testCaseList">
+
+                    </div>
+                </div>
+            </div>
+            <div id="testcasesTable" class="col-9 hidden ps-2 mb-5">
+
+                <div style="float: right;" class="mb-2" id="testcaseCreationSymbol">
+                    <i class='fa fa-plus-circle'></i>
+                </div>
+
+                <div>
+                    <table id="tcTable" class="table table-bordered mb-3 ps-2">
+                        <thead>
+                            <tr>
+                                <th id="projectNameHeader">Project Name</th>
+                                <th id="versionNameHeader">Version Name</th>
+                                <th id="tcIDHeader">TC Name</th>
+                                <th id="tcNameHeader">TC ID</th>
+                                <th id="tcPriorityHeader">TC Priority</th>
+                                <th id="tcTypeHeader">TC Type</th>
+                                <th id="tcGradeHeader">TC Grade</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="col-9">
+                <form id="tcShowingForm" class="hidden ps-2">
+                    <button id="editButton" class="mb-5">
+                        <i class='fa fa-edit'></i>Enable Edit
+                    </button>
+                    <div class="mb-3">
+                        <label for="titles" class="form-label">TC Name:</label>
+                        <input type="text" class="form-control" id="titles" name="titles" disabled>
+                    </div>
+                    <div class="mb-5">
+                        <div class="row">
+                            <div class="col">
+                                <label for="inputs1" class="form-label">tc:36c</label>
+                                <input type="text" class="form-control pb-2" id="inputs1" name="inputs1" disabled>
+                            </div>
+                            <div class="col">
+                                <label for="inputs2" class="form-label">TC ID:</label>
+                                <input type="text" class="form-control pb-2" id="inputs2" name="inputs2" disabled>
+                            </div>
+                            <div class="col">
+                                <label for="inputs3" class="form-label">Priority:</label>
+                                <select class="form-select pb-2" id="inputs3" name="inputs3" disabled>
+                                    <option value="high">High</option>
+                                    <option value="medium">Medium</option>
+                                    <option value="low">Low</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <label for="inputs4" class="form-label">Type:</label>
+                                <select class="form-select" id="inputs4" name="inputs4" disabled>
+                                    <option value="automated">Automated</option>
+                                    <option value="manual">Manual</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="inputs5" class="form-label">TestCases Type:</label>
+                                <select class="form-select" id="inputs5" name="inputs5" disabled>
+                                    <option value="teststeps">Test Steps</option>
+                                    <option value="testtext">Test Text</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <label for="inputs6" class="form-label">admin:</label>
+                                <input type="text" class="form-control" id="inputs6" name="inputs6" disabled>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-4">
+                        <label for="inputs7" class="form-label">TestCases Type:</label>
+                        <select class="form-select" id="inputs7" name="inputs7" disabled>
+                            <option value="Pass">Pass</option>
+                            <option value="Fail">Fail</option>
+                            <option value="NE">NE</option>
+                        </select>
+                    </div>
+
+                    <div mt-5>
+                        <label for="inputs8" class="form-label">Description:</label>
+                        <textarea class="form-control" id="inputs8" name="inputs8" rows="3" disabled></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
